@@ -1,0 +1,19 @@
+# Core data analysis
+pandas>=2.0
+numpy>=1.26
+
+# Visualisation
+matplotlib>=3.8
+seaborn>=0.13
+
+# Statistics and modelling
+scipy>=1.11
+statsmodels>=0.14
+scikit-learn>=1.4
+xgboost>=2.0
+
+# Notebook environment
+jupyterlab>=4.0
+notebook>=7.0
+nbconvert>=7.0
+nbclient>=0.10

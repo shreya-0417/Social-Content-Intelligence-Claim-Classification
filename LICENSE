@@ -1,0 +1,29 @@
+Copyright (c) Dane Tipene. All rights reserved.
+
+ORIGINAL WORK
+-------------
+Title:   TikTok Claims Classification
+Author:  Dane Tipene (https://github.com/DataDaneHQ)
+Source:  https://github.com/DataDaneHQ/TikTok-Claims-Classification
+
+TERMS
+-----
+All rights reserved. No part of this repository may be reproduced,
+distributed, or transmitted in any form or by any means without the prior
+written permission of the owner.
+
+MIGRATION NOTE
+--------------
+This repository is a presentation-focused migration of the original work
+above: the project has been re-titled, re-organised into `data/`, `notebooks/`,
+`docs/`, `assets/` and `screenshots/`, notebook data paths have been made
+portable, and new documentation and an architecture diagram have been added.
+
+The analytical implementation (EDA, hypothesis testing, logistic regression,
+Random Forest / XGBoost modelling), the dataset and the original figures remain
+the work of the original author. No new licence is granted by this migration,
+and the original all-rights-reserved terms continue to apply in full.
+
+The dataset (`data/tiktok_dataset.csv`) was supplied as course material for the
+Google Advanced Data Analytics Professional Certificate programme and is
+included here for reproducibility of the published analysis.

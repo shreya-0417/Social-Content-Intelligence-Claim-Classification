@@ -1,0 +1,44 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+# Derived data produced by notebooks/05_preprocess_dataset.ipynb
+data/cleaned_tiktok_dataset.csv
+
+# Packaging
+*.egg-info/
+build/
+dist/
+
+# R / legacy project files
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+
+# Agent tooling metadata
+.freebuff/

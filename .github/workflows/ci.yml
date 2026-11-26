@@ -1,0 +1,52 @@
+name: Validate analysis
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Validate notebook structure
+        run: |
+          python - <<'PY'
+          import glob
+          import nbformat
+
+          files = sorted(glob.glob("notebooks/*.ipynb"))
+          assert files, "no notebooks found"
+          for path in files:
+              nbformat.validate(nbformat.read(path, as_version=4))
+              print("valid:", path)
+          PY
+
+      - name: Re-execute the cleaning and feature-engineering stage
+        run: |
+          jupyter nbconvert --to notebook --execute notebooks/05_preprocess_dataset.ipynb \
+            --output-dir build --ExecutePreprocessor.timeout=600
+
+      - name: Check the cleaned dataset was produced
+        run: |
+          python - <<'PY'
+          import pandas as pd
+
+          df = pd.read_csv("data/cleaned_tiktok_dataset.csv")
+          assert df.shape[0] == 19084, df.shape
+          assert df.isna().sum().sum() == 0
+          print("cleaned dataset:", df.shape)
+          PY
