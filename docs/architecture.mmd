@@ -1,0 +1,31 @@
+%% Social Content Intelligence: Claim Classification
+%% Editable source for docs/architecture.png
+flowchart TB
+    A["TikTok claims dataset<br/>data/tiktok_dataset.csv<br/>19,382 rows &times; 12 columns"]
+
+    subgraph ANA["Python analytics environment &mdash; Jupyter notebooks"]
+        direction TB
+        B["01 &middot; Initial EDA<br/>structure and distributions"]
+        C["02 &middot; Full EDA<br/>engagement, outliers, correlations"]
+        D["03 &middot; Hypothesis testing<br/>two-sample t-test on view counts"]
+        E["04 &middot; Logistic regression<br/>statsmodels logit"]
+        F["05 &middot; Cleaning and feature engineering<br/>null removal, text_length, encoding"]
+        H["data/cleaned_tiktok_dataset.csv<br/>19,084 rows &times; 12 columns"]
+        G["06 &middot; Model development<br/>Random Forest vs XGBoost, GridSearchCV"]
+        B --> C --> D --> E --> F --> H --> G
+    end
+
+    subgraph OUT["Outputs"]
+        direction TB
+        I["Champion model metrics<br/>accuracy 99.50% &middot; recall 99.21%"]
+        J["Feature importance<br/>engagement metrics dominate"]
+        K["Executive summaries<br/>Markdown + Canva decks"]
+    end
+
+    L["Tableau Public<br/>Summary Dashboard"]
+
+    A --> B
+    C --> L
+    G --> I
+    G --> J
+    ANA -.-> K
